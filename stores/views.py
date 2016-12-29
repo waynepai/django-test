@@ -7,11 +7,11 @@ from .models import Store
 
 def store_list(request):
     stores = Store.objects.all()
-    return render(request, 'store_list.html', locals())
+    return render(request, 'stores/store_list.html', locals())
 
 def store_detail(request, pk):
     try:
         store = Store.objects.get(pk=pk)
     except:
         raise Http404
-    return render(request, 'store_detail.html', locals())
+    return render(request, 'stores/store_detail.html', locals())
