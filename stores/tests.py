@@ -4,6 +4,12 @@ from .models import *
 
 # Create your tests here.
 
+class HomeViewTests(TestCase):
+    def test_home_view(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'home.html')
+
 class StoreViewTests(TestCase):
     def setUp(self):
         Store.objects.create(name='肯德基', notes='沒有薄皮嫩雞倒一倒算了啦')
